@@ -17,6 +17,25 @@ void Rev(int,int,int**,int**,double**); //計算Net Revenue
 //double avg(double**); //計算平均數 
 //double sd(double,double**); //計算標準差 
 
+double avg(int array[], int len)
+{
+	double sum = 0.0;
+	for (int i = 0; i < len; ++i)
+	{
+		sum += array[i];
+	}
+	return sum / len;
+}
+double sd(int array[], int len, double avg)
+{
+	double sd = 0.0;
+	for (int i = 0; i < len; ++i)
+		sd += pow(static_cast<double>(array[i]) - avg, 2);
+	cout << "sum: " << sd << "\n";
+	return sqrt(sd / len);
+
+}
+
 int main(){
 	cin>>n>>m>>c; //n是物流中心數，m是零售店數，c是每公里單位貨物補貨成本
 	
