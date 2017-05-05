@@ -111,7 +111,7 @@ int main() {
 	      補貨後將Nmap、Mmap中的數值做減少。並同時將補貨紀錄在Output陣列中。 */
 
 	double Threshold; //閥值(前面定義)
-	Threshold = average;
+	Threshold = 0;
 	int* OutputN = new int[n];
 	int* OutputM = new int[m];
 	for (int i = 0; i < n; i++)
@@ -204,7 +204,7 @@ int main() {
 			}
 		}
 		else {
-			Ncount = z + 1;
+			Ncount = z;
 			break;
 		}
 	}
