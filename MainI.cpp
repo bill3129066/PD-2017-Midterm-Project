@@ -130,18 +130,24 @@ int main() {
 
 		double coefficient, kkk;
 		if (jjj == 0)
-			kkk = 0.13;
+			kkk = 0.1;
+		else if (jjj == 21)
+			kkk = 0.12;
 		else if (jjj == 51)
-			kkk = 0.16;
+			kkk = 0.15;
+		else if (jjj == 81)
+			kkk = 0.17;
 		else if (jjj == 121)
-			kkk = 0.21;
+			kkk = 0.19;
+		else if (jjj == 181)
+			kkk = 0.22;
 		else if (jjj == 221)
-			kkk = 0.28;
+			kkk = 0.27;
 		else if (jjj == 361)
-			kkk = 0.37;
+			kkk = 0.34;
 
-		coefficient = 2.8 - (kkk * (jjj % 12));
-		Threshold = average + coefficient * standard_div;
+		coefficient = 2.7 - (kkk * (jjj % 12));
+		Threshold = average + coefficient * standard_div * 1.1;
 		if (jjj == 521)
 			Threshold = 0;
 
@@ -378,3 +384,17 @@ double sd(double AA, double**RR) {
 	}
 	return sqrt(sum / len);
 }
+
+
+/*可以用來湊數字的地方有
+1. 128~131行
+可以改變coefficient的變率
+我自己的感覺是越細碎越好
+然後jjj的最大值也可以改變
+jjj大約到300以上就有機率TLE 400以上超高機率TLE 不過還是可以都嘗試看看
+
+2. 226行
+可以決定每幾組進行榨乾一次
+我自己的實驗是不要每個榨也不要都不榨
+大約設在4~10之間就好
+目前有逼出比較高數字的都是5~7*/
